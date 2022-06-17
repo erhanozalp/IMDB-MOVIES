@@ -60,7 +60,7 @@ public class MovieListActivity extends AppCompatActivity {
         Request request = new Request.Builder()
                 .url("https://imdb-api.com/API/SearchMovie/k_dfck1qfc/"+movieName)
                 .method("GET", null)
-                .addHeader("accept", "text/plain")
+                .addHeader("accept", "application/json")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override

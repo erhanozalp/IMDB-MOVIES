@@ -4,7 +4,6 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
 public class MovieResult {
 
     @SerializedName("searchType")
@@ -15,16 +14,12 @@ public class MovieResult {
     private String expression;
     @SerializedName("results")
     @Expose
-    private static List<Result> results = null;
+    private List<Result> results = null;
     @SerializedName("errorMessage")
     @Expose
     private String errorMessage;
 
     public MovieResult() {
-    }
-
-    public static List<Result> getResult() {
-        return results;
     }
 
     public String getSearchType() {
@@ -60,3 +55,4 @@ public class MovieResult {
     }
 
 }
+

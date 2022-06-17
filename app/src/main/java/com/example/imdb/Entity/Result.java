@@ -6,6 +6,7 @@ import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+
 public class Result implements Parcelable
 {
 
@@ -49,7 +50,13 @@ public class Result implements Parcelable
         this.description = ((String) in.readValue((String.class.getClassLoader())));
     }
 
-    public Result(String id, String resultType, String image, String title, String description) {
+    public Result(String id,String resultType,String image,String title,String description) {
+        super();
+        this.id=id;
+        this.resultType=resultType;
+        this.image=image;
+        this.title=title;
+        this.description=description;
     }
 
     public String getId() {
