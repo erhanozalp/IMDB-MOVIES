@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IMDB MOVIES</string>
+    <string name="show_watchlist_btn">Show Watchlist</string>
+    <string name="show_searched_movie_btn">Search</string>
+    <string name="movie_name_hint">Enter Movie Name</string>
+    <string name="save">Save</string>
+</resources>
