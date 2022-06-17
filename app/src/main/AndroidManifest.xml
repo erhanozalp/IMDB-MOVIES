@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.imdb">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,8 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IMDB">
         <activity
+            android:name=".Activities.MovieListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.WatchListActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,5 +28,6 @@
             </intent-filter>
         </activity>
     </application>
+
 
 </manifest>

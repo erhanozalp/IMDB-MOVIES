@@ -27,7 +27,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class MovieListActivity<bundle> extends AppCompatActivity {
+public class MovieListActivity extends AppCompatActivity {
 
     private String movieName;
     private RecyclerView movie_list_recyclerview;
@@ -57,11 +57,9 @@ public class MovieListActivity<bundle> extends AppCompatActivity {
     private void getMovieListFromNetwork(String movieName){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
-        MediaType mediaType = MediaType.parse("text/plain");
-        RequestBody body = RequestBody.create(mediaType, "");
         Request request = new Request.Builder()
                 .url("https://imdb-api.com/API/SearchMovie/k_dfck1qfc/"+movieName)
-                .method("GET", body)
+                .method("GET", null)
                 .addHeader("accept", "text/plain")
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -80,7 +78,7 @@ public class MovieListActivity<bundle> extends AppCompatActivity {
                     MovieListActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            setAdapterRecyclerView(MovieResult.getResult());
+                            setAdapterRecyclerView(movieResult.getResults());
                         }
                     });
 
