@@ -11,30 +11,36 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.example.imdb.Activities.WatchListActivity;
 import com.example.imdb.Entity.Result;
 import com.example.imdb.R;
 import com.squareup.picasso.Picasso;
 
+
 import java.util.List;
 
-public class MovieResultAdapter extends RecyclerView.Adapter<MovieResultAdapter.ViewHolder> {
-    private List<Result> movieResultList;
-    private Result result;
 
+
+public class MovieResultAdapter extends RecyclerView.Adapter<MovieResultAdapter.ViewHolder>{
+    private List<Result> movieResultList;
+
+    private Button add_watchlist;
+    private Result result;
     public MovieResultAdapter(List<Result> movieResultList){
-        this.movieResultList = movieResultList;
+        this.movieResultList=movieResultList;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType){
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.movie_list_item, viewGroup, false);
         ViewHolder holder = new ViewHolder(view);
+
         return holder;
     }
-
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position){
+    public void onBindViewHolder(ViewHolder holder, int position) {
         result = movieResultList.get(position);
 
         holder.movie_name_textview.setText(result.getTitle());
@@ -47,51 +53,42 @@ public class MovieResultAdapter extends RecyclerView.Adapter<MovieResultAdapter.
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-
-            }
-        });
-
-        holder.btn_addwatchlist.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
-
+                int pos=holder.getLayoutPosition();
+                result=movieResultList.get(pos);
+                Intent intent=new Intent(v.getContext(), WatchListActivity.class);
+                intent.putExtra("result",result);
+                v.getContext().startActivity(intent);
             }
         });
-    }
 
+    }
     @Override
     public int getItemCount() {
-        return 0;
-    }
-
-
-    public int getİtemCount(){
         return movieResultList.size();
     }
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView movie_name_textview;
-        private TextView year_textview;
-        private ImageView image_view;
-        private Button btn_addwatchlist;
 
-        public ViewHolder(View v){
+        private TextView movie_name_textview;
+        private ImageView image_view;
+        private TextView year_textview;
+
+        public ViewHolder(View v) {
+
             super(v);
 
-            movie_name_textview = v.findViewById(R.id.movie_name_textview);
-            year_textview = v.findViewById(R.id.year_textview);
-            btn_addwatchlist = v.findViewById(R.id.btn_addwatchlist);
-
+            movie_name_textview=v.findViewById(R.id.movie_name_textview);
+            image_view=v.findViewById(R.id.image_view);
+            year_textview=v.findViewById(R.id.year_textview);
         }
-
     }
 
     private void navigateWatchListActivity(Context context){
 
     }
 
-
 }
+
 
