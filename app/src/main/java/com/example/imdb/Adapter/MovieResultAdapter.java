@@ -25,7 +25,6 @@ import java.util.List;
 public class MovieResultAdapter extends RecyclerView.Adapter<MovieResultAdapter.ViewHolder>{
     private List<Result> movieResultList;
 
-    private Button add_watchlist;
     private Result result;
     public MovieResultAdapter(List<Result> movieResultList){
         this.movieResultList=movieResultList;
@@ -54,6 +53,12 @@ public class MovieResultAdapter extends RecyclerView.Adapter<MovieResultAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+            }
+        });
+        holder.btn_addwatchlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 int pos=holder.getLayoutPosition();
                 result=movieResultList.get(pos);
                 Intent intent=new Intent(v.getContext(), WatchListActivity.class);
@@ -61,6 +66,8 @@ public class MovieResultAdapter extends RecyclerView.Adapter<MovieResultAdapter.
                 v.getContext().startActivity(intent);
             }
         });
+
+
 
     }
     @Override
@@ -74,6 +81,7 @@ public class MovieResultAdapter extends RecyclerView.Adapter<MovieResultAdapter.
         private TextView movie_name_textview;
         private ImageView image_view;
         private TextView year_textview;
+        private Button btn_addwatchlist;
 
         public ViewHolder(View v) {
 
@@ -82,6 +90,7 @@ public class MovieResultAdapter extends RecyclerView.Adapter<MovieResultAdapter.
             movie_name_textview=v.findViewById(R.id.movie_name_textview);
             image_view=v.findViewById(R.id.image_view);
             year_textview=v.findViewById(R.id.year_textview);
+            btn_addwatchlist = v.findViewById(R.id.btn_addwatchlist);
         }
     }
 

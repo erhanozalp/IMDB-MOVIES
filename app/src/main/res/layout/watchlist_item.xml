@@ -22,33 +22,29 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Movie Name: ">
-
-        </TextView>
+            android:text="Movie Name:"></TextView>
 
         <TextView
             android:id="@+id/movie_name_textview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </TextView>
+            android:layout_height="wrap_content"></TextView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Year: ">
-
-        </TextView>
+            android:text="Year:"></TextView>
 
         <TextView
             android:id="@+id/year_textview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"></TextView>
 
-        </TextView>
     </LinearLayout>
-</LinearLayout>
 
+
+
+
+</LinearLayout>
 
 
 

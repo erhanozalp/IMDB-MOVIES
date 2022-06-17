@@ -1,4 +1,4 @@
-package com.example.imdb.Activities.Activities.Adapter;
+package com.example.imdb.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -38,7 +38,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         result = movieResultList.get(position);
 
-        holder.title_textview.setText(result.getTitle());
+        holder.movie_name_textview.setText(result.getTitle());
         holder.year_textview.setText(result.getDescription());
         Picasso.get().load(result.getImage())
                 .placeholder(R.drawable.ic_baseline_image_24)
@@ -62,7 +62,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.View
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView title_textview;
+        private TextView movie_name_textview;
         private ImageView image_view;
         private TextView year_textview;
 
@@ -70,7 +70,7 @@ public class WatchListAdapter extends RecyclerView.Adapter<WatchListAdapter.View
 
             super(v);
 
-            title_textview=v.findViewById(R.id.movie_name_textview);
+            movie_name_textview=v.findViewById(R.id.movie_name_textview);
             image_view=v.findViewById(R.id.image_view);
             year_textview=v.findViewById(R.id.year_textview);
         }
